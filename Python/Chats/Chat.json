@@ -1,0 +1,106 @@
+{
+    "TabLabel": "Hi ChatGPT",
+    "InitTabSize": [800, 500],
+    "InitTabPosition": [1700, 400],
+    "HasMinimizeMaximizeButton": false,
+    "InitPyCmd": "import Chats, importlib; importlib.reload(Chats); chameleon_chat = Chats.Chat.chat(%JsonPath)",
+    "Root":
+    {
+        "SVerticalBox":
+        {
+            "Slots": [
+                {
+                    "SMultiLineEditableText":
+                    {
+                        "Text": "",
+                        "Aka": "GPT",
+                        "AutoWrapText": true,
+                        "SelectAllTextWhenFocused": true,
+                        "OnTextChanged": "print('changed')",
+                        "OnTextCommitted": "print(%)"
+                    }
+                },
+                {
+                    "AutoHeight": true,
+                    "SComboButton": {
+                        "ButtonContent": {
+                            "STextBlock": {
+                                "Text": "Choose And Trigger the Command"
+                            }
+                        },
+                        "HasDownArrow": true,
+                        "OnGetMenuContent": {
+                            "items": [
+                                {"name": "GPT你好，我们现在需要按照规则学习TAPython中界面JSON文件的写法"        , "Command": "chameleon_chat.on_combo_select('GPT你好，我们现在需要按照规则学习TAPython中界面JSON文件的写法')" },
+                                {"name": "下面我会发你的json文件都是用于学习的范例，你不用解释其中的内容给我", "Command": "chameleon_chat.on_combo_select('下面我会发你的json文件都是用于学习的范例，你不用解释其中的内容给我')" },
+                                {"name": "发送最小范例"   , "Command": "chameleon_chat.on_combo_select('发送最小范例')" },
+                                {"name": "上面这个是最小范例，之后当我说'返回最小范例'的时候，你就把它的内容返回给我，不用修改其他内容"          , "Command": "chameleon_chat.on_combo_select('上面这个是最小范例，之后当我说\"返回最小范例\"的时候，你就把它的内容返回给我，不用修改其他内容')" },
+                                {"name": "'返回最小范例'"          , "Command": "chameleon_chat.on_combo_select('返回最小范例')" },
+                                {"name": "之后你给我的回答应该都是基于最小范例中的内容，生成的json格式的文件内容"          , "Command": "chameleon_chat.on_combo_select('之后你给我的回答应该都是基于最小范例中的内容，生成的json格式的文件内容')" },
+                                {"name":  "你返回给我的json文件中，需要包含:\"InitTabSize\": [400, 250], \"InitTabPosition\": [200, -500] 这两项" , "Command": "chameleon_chat.on_combo_select('你返回给我的json文件中，需要包含:\"InitTabSize\": [400, 250], \"InitTabPosition\": [200, -500] 这两项')" },
+                                {"name": "请把最小范例中按钮的数量改成两个，他们的label分别为'hello' 和'TAPython' "   , "Command": "chameleon_chat.on_combo_select('请把按钮的数量改成两个，他们的label分别为hello 和TAPython')" },
+                                {"name": "请把第一个按钮的颜色改成红色。设置按钮的颜色可以用'ButtonColorAndOpacity'，它对应的是一个rgba的线性颜色数组"      , "Command": "chameleon_chat.on_combo_select('请把第一个按钮的颜色改成红色。设置按钮的颜色可以用\"ButtonColorAndOpacity\"，它对应的是一个rgba的线性颜色数组')" },
+                                {"name": "请把按钮的数量改成三个，水平排列", "Command": "chameleon_chat.on_combo_select('请把按钮的数量改成三个，水平排列')"},
+                                {"name": "随机修改一下按钮的颜色"      , "Command": "chameleon_chat.on_combo_select('随机修改一下按钮的颜色')" },
+                                {"name": "发送TAPythonBPLib "      , "Command": "chameleon_chat.on_combo_select('发送TAPythonBPLib')" }
+                            ]
+                        },
+                    "HAlign": "Center"
+                    }
+                },
+                {
+                    "AutoHeight": true,
+                    "SHorizontalBox":
+                    {
+                        "Slots": [
+                            {
+                                "Padding": 4,
+                                "AutoWidth": true,
+                                "STextBlock": {"Text": "User:"}
+                            },
+                            {
+                                "SEditableTextBox":
+                                {
+                                    "AutoWrapText": true,
+                                    "ColorAndOpacity": [1, 1, 1, 1],
+                                    "Font": {
+                                        "Style": "FCoreStyle",
+                                        "StyleName": "DefaultFont.Bold.11"
+                                    },
+                                    "Justification": "Left",
+                                    "Text": "你好",
+                                    "Aka": "Input",
+                                    "SelectAllTextWhenFocused": true,
+                                    "OnTextCommitted": "chameleon_chat.on_committed()"
+                                }
+                            },
+                            {
+                                "AutoWidth": true,
+                                "SButton": {
+                                    "Text": "C",
+                                    "padding": [4, 0],
+                                    "OnClick": "chameleon_chat.data.set_text('Input','')"
+                                }
+                            },
+                            {
+                                "AutoWidth": true,
+                                "SButton": {
+                                    "Text": "Send",
+                                    "OnClick": "chameleon_chat.on_send_click()"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "SMultiLineEditableTextBox":
+                    {
+                        "IsReadOnly": true,
+                        "Aka": "Status",
+                        "Text": ""
+                    }
+                }
+            ]
+        }
+    }
+}

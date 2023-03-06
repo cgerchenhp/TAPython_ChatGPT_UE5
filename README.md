@@ -1,4 +1,4 @@
-# TAPython_ChatGTP_UE5
+# TAPython_ChatGPT_UE5
 
 This is a demo project of using ChatGPT to create Slate UI with TAPython in Unreal Engine 5. 
 
